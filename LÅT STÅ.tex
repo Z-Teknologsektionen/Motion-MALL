@@ -1,0 +1,63 @@
+%% Definitioner och så
+
+
+\hypersetup{pdfpagemode=UseNone}
+
+
+\setlength\cftparskip{-2pt} %Avstånd mellan subsections i ToC
+\setlength\cftbeforesecskip{5pt} %Avstånd mellan sections i ToC
+\renewcommand{\cftdotsep}{0} %mellanrummet mellan punkterna mellan subsec och sidnummer i ToC
+\setlength\cftsubsecindent{1.3cm} %skjuter in subsec lite i ToC
+\renewcommand{\cftsecfont}{\bfseries  \fontshape{n}\selectfont \large}
+\renewcommand{\cftsecpresnum}{§ }%paragraftecknet i ToC
+\renewcommand{\cftsecaftersnum}{.}%paragraftecknet i ToC
+\setlength\cftsecnumwidth{1.1cm} %Inte nöjd
+\renewcommand{\cftsubsecfont}{\fontshape{it}\selectfont \small}
+
+
+\usepackage[scaled]{helvet} %font
+\renewcommand*{\familydefault}{\sfdefault} %font
+
+
+
+\renewcommand{\arraystretch}{1.6} %gör att det inte blir så tight i rutorna
+\newcommand{\firstboxwidth}{p{1.33cm}} %Här ändrar man bredden på boxen som innehåller text 
+\newcommand{\boxwidth}{p{12.0cm}} %Här ändrar man bredden på boxen som innehåller text
+
+
+\newcommand{\subsubp}[1]{ & #1 \\ \hline}
+\newcommand{\paragraphboxes}[1]{
+\begin{center}
+    \begin{tabular}{ | \firstboxwidth | \boxwidth |}
+    \hline
+    #1
+    \end{tabular}
+\end{center}
+}
+\newcommand{\paragraphboxeslong}[1]{
+\begin{center}
+    \tabletail{
+    \hline
+    }
+    \tablelasttail{}
+    \begin{supertabular}{ | \firstboxwidth | \boxwidth |}
+    \hline
+    #1
+    \end{supertabular}
+\end{center}
+}
+
+\titleformat{\section}{\Large\bf}{§ \thesection}{0.3cm}{} %Lägger till paragraftecknet framför kapitlena
+
+%% Hemmagjorda kommandon
+
+\newcommand{\paragrafnummer}{\stepcounter{subsubsection} \arabic{section}.\arabic{subsection}.\arabic{subsubsection}} %Det här kommandot skriver man när man vill skriva ut numret på en subsubparagraf. Observera att den räknar upp. 
+
+\newcommand{\plabel}[1]{\addtocounter{subsubsection}{-1} \refstepcounter{subsubsection}  \label{#1}} %Används för att på ett korrekt sätt skapa en label till en subsubparagraf
+
+\newcommand{\smallitemlist}[1]{\begin{compactitem}#1\end{compactitem} \vspace{-0.4cm}} %passar ändamålet bra
+\newcommand{\smallenum}[1]{\begin{compactenum}#1\end{compactenum} \vspace{-0.4cm}} %passar ändamålet bra
+\newcommand{\smallitemfill}{\vspace{0.4cm}}
+
+\newcommand{\blankrad}[1][1]{\\[#1\baselineskip]}
+
